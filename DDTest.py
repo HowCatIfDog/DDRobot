@@ -21,13 +21,15 @@ from time import sleep
 
 #///////////////// Define Motor Driver GPIO Pins /////////////////
 # Motor A, Left Side GPIO CONSTANTS
-PWM_DRIVE_LEFT = 21		# ENA - H-Bridge enable pin
-FORWARD_LEFT_PIN = 26	# IN1 - Forward Drive
-REVERSE_LEFT_PIN = 19	# IN2 - Reverse Drive
+PWM_DRIVE_LEFT =   23	# ENA - H-Bridge enable pin
+FORWARD_LEFT_PIN = 24	# IN1 - Forward Drive
+REVERSE_LEFT_PIN = 25	# IN2 - Reverse Drive
 # Motor B, Right Side GPIO CONSTANTS
-PWM_DRIVE_RIGHT = 5		# ENB - H-Bridge enable pin
-FORWARD_RIGHT_PIN = 13	# IN1 - Forward Drive
-REVERSE_RIGHT_PIN = 6	# IN2 - Reverse Drive
+PWM_DRIVE_RIGHT =   26  # ENB - H-Bridge enable pin
+FORWARD_RIGHT_PIN = 28	# IN1 - Forward Drive
+REVERSE_RIGHT_PIN = 29	# IN2 - Reverse Drive
+
+STANDBY_PIN =       27  # High enables moving
 
 # Initialise objects for H-Bridge GPIO PWM pins
 # Set initial duty cycle to 0 and frequency to 1000
@@ -39,6 +41,7 @@ forwardLeft = PWMOutputDevice(FORWARD_LEFT_PIN)
 reverseLeft = PWMOutputDevice(REVERSE_LEFT_PIN)
 forwardRight = PWMOutputDevice(FORWARD_RIGHT_PIN)
 reverseRight = PWMOutputDevice(REVERSE_RIGHT_PIN)
+standby = PWMOutputDevice(STANDBY_PIN)
 
 def allStop():
 	forwardLeft.value = False
@@ -113,6 +116,7 @@ def reverseTurnRight():
 	driveRight.value = 0.2
 
 def main():
+	standby.value = True
 	allStop()
 	forwardDrive()
 	sleep(5)
