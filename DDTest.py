@@ -26,8 +26,8 @@ FORWARD_LEFT_PIN = 24	# IN1 - Forward Drive
 REVERSE_LEFT_PIN = 25	# IN2 - Reverse Drive
 # Motor B, Right Side GPIO CONSTANTS
 PWM_DRIVE_RIGHT =   26  # ENB - H-Bridge enable pin
-FORWARD_RIGHT_PIN = 28	# IN1 - Forward Drive
-REVERSE_RIGHT_PIN = 29	# IN2 - Reverse Drive
+FORWARD_RIGHT_PIN = 4	# IN1 - Forward Drive
+REVERSE_RIGHT_PIN = 5	# IN2 - Reverse Drive
 
 STANDBY_PIN =       27  # High enables moving
 
