@@ -52,6 +52,7 @@ def allStop():
 	driveRight.value = 0
 
 def forwardDrive():
+	print("going forward")
 	forwardLeft.value = True
 	reverseLeft.value = False
 	forwardRight.value = True
@@ -60,6 +61,7 @@ def forwardDrive():
 	driveRight.value = 1.0
 
 def reverseDrive():
+	print("going backwards")
 	forwardLeft.value = False
 	reverseLeft.value = True
 	forwardRight.value = False
@@ -68,6 +70,7 @@ def reverseDrive():
 	driveRight.value = 1.0
 
 def spinLeft():
+	print("spin left")
 	forwardLeft.value = False
 	reverseLeft.value = True
 	forwardRight.value = True
@@ -76,6 +79,7 @@ def spinLeft():
 	driveRight.value = 1.0
 
 def SpinRight():
+	print("spin right")
 	forwardLeft.value = True
 	reverseLeft.value = False
 	forwardRight.value = False
@@ -84,6 +88,7 @@ def SpinRight():
 	driveRight.value = 1.0
 
 def forwardTurnLeft():
+	print("forward turn left")
 	forwardLeft.value = True
 	reverseLeft.value = False
 	forwardRight.value = True
@@ -92,6 +97,7 @@ def forwardTurnLeft():
 	driveRight.value = 0.8
 
 def forwardTurnRight():
+	print("forward turn right")
 	forwardLeft.value = True
 	reverseLeft.value = False
 	forwardRight.value = True
@@ -100,6 +106,7 @@ def forwardTurnRight():
 	driveRight.value = 0.2
 
 def reverseTurnLeft():
+	print("reverse turn left")
 	forwardLeft.value = False
 	reverseLeft.value = True
 	forwardRight.value = False
@@ -108,6 +115,7 @@ def reverseTurnLeft():
 	driveRight.value = 0.8
 
 def reverseTurnRight():
+	print("reverse turn right")
 	forwardLeft.value = False
 	reverseLeft.value = True
 	forwardRight.value = False
