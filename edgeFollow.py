@@ -124,7 +124,7 @@ def autoThresh(ratio, cap):
 
 	while(r > ratio):
 		th, im_th = cv2.threshold(gray, n, 255, cv2.THRESH_BINARY);
-		n++
+		n += 1
 
 		# copy the original imae into the floodfill images used to fill
 	   # holes in the image
