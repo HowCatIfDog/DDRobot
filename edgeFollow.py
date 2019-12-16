@@ -188,7 +188,7 @@ while(True):
 	# inverse the image so that the area outside the path is white
 
 	# show the image in the window with the trackbar
-	cv2.imshow(title_window, im_out)
+	# cv2.imshow(title_window, im_out)
 
 	total = im_out.size
 	whitePixels = cv2.countNonZero(im_out)
