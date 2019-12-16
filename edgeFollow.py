@@ -259,7 +259,7 @@ while(True):
 	if left > 1:
 		left = 1
 	if right < 0:
-		rforwardRight.value = False
+		forwardRight.value = False
 		reverseRight.value = True
 		right = -right
 	if right > 1:
