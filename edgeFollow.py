@@ -142,6 +142,7 @@ right =0.5
 forwardDrive()
 Kp = 0.5
 rDresired = 0.5
+N = 120
 
 while(True):
 	# read the image in (note) needs to be swapped over to video but
@@ -154,7 +155,7 @@ while(True):
 
 	# create the trackbar that updates everytime you move it to a new
 	# position and calls the on_trackbar function
-	N = cv2.getTrackbarPos(trackbar_name, title_window)
+	# N = cv2.getTrackbarPos(trackbar_name, title_window)
 
 	# threshold the given image at the value from the trackbar
 	th, im_th = cv2.threshold(gray, N, 255, cv2.THRESH_BINARY);
