@@ -133,9 +133,9 @@ def passfunc(val):
 trackbar_name = "Threshold"
 
 # name the window what the title name is above
-cv2.namedWindow(title_window, cv2.WINDOW_NORMAL)
-
-cv2.createTrackbar(trackbar_name, title_window , 0, 	alpha_slider_max, passfunc)
+# cv2.namedWindow(title_window, cv2.WINDOW_NORMAL)
+#
+# cv2.createTrackbar(trackbar_name, title_window , 0, 	alpha_slider_max, passfunc)
 
 left = 0.5
 right =0.5
