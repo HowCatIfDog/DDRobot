@@ -192,7 +192,7 @@ while(True):
 	total = im_out.size
 	whitePixels = cv2.countNonZero(im_out)
 	ratio = whitePixels/total
-	error = error - ratio
+	error = rDresired - ratio
 	left += error*Kp
 	right += -error*Kp
 	updatePWM(right, left)
