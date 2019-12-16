@@ -73,6 +73,7 @@ def on_trackbar(N):
 # read the image in (note) needs to be swapped over to video but
 # is fine rn for testing on a static image
 image = cv2.imread('/home/seth/Robotics/DDRobot/sidewalk.jpg',cv2.IMREAD_GRAYSCALE)
+#image = cv2.imread('/home/sriddick/Documents/Final_Project/DDRobot/refpic2.jpg',cv2.IMREAD_GRAYSCALE)
 
 # blur the image to get some of the garbage out
 image = cv2.GaussianBlur(image,(5,5),0)
