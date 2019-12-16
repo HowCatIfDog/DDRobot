@@ -1,23 +1,10 @@
 
 #!/usr/bin/env python3
 
-"""
-File: skidsteer_two_pwm_test.py
-
-This code will test Raspberry Pi GPIO PWM on four GPIO
-pins. The code test ran with L298N H-Bridge driver module connected.
-
-Website:	www.bluetin.io
-Date:		27/11/2017
-"""
-
-__author__ = "Mark Heywood"
-__version__ = "0.1.0"
-__license__ = "MIT"
-
 from gpiozero import PWMOutputDevice
 from gpiozero import DigitalOutputDevice
 from time import sleep
+import contour.py
 
 #///////////////// Define Motor Driver GPIO Pins /////////////////
 # Motor A, Left Side GPIO CONSTANTS
@@ -57,8 +44,8 @@ def forwardDrive():
 	reverseLeft.value = False
 	forwardRight.value = True
 	reverseRight.value = False
-	driveLeft.value = 1.0
-	driveRight.value = 1.0
+	driveLeft.value = 0.7
+	driveRight.value = 0.7
 
 def reverseDrive():
 	print("going backwards")
@@ -128,25 +115,17 @@ def updatePWM(right, left):
 	driveRight.value = right;
 
 def main():
-	standby.value = True
-	allStop()
+	left = 0.5
+	right =0.5
 	forwardDrive()
-	sleep(5)
-	reverseDrive()
-	sleep(5)
-	spinLeft()
-	sleep(5)
-	SpinRight()
-	sleep(5)
-	forwardTurnLeft()
-	sleep(5)
-	forwardTurnRight()
-	sleep(5)
-	reverseTurnLeft()
-	sleep(5)
-	reverseTurnRight()
-	sleep(5)
-	allStop()
+	Kp = 1.0
+	while(1)
+	{
+		contour(ratio)
+		left += ratio*Kp
+		right += -ratio*kp
+		updatePWM(right, left)
+	}
 
 
 if __name__ == "__main__":
