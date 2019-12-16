@@ -137,8 +137,8 @@ trackbar_name = "Threshold"
 #
 # cv2.createTrackbar(trackbar_name, title_window , 0, 	alpha_slider_max, passfunc)
 
-left = 0.5
-right =0.5
+left = 0.45
+right =0.55
 forwardDrive()
 Kp = 0.3
 rDresired = 0.6
