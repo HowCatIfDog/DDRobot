@@ -196,6 +196,17 @@ while(True):
 	error = rDresired - ratio
 	left += error*Kp
 	right += -error*Kp
+
+	if left > 1:
+		left = 1
+	if left < 0:
+		left = 0
+	if right > 1:
+		right = 1
+	if right < 0:
+		right = 0
+
+
 	updatePWM(right, left)
 	print(ratio)
 	#return ratio
