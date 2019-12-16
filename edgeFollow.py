@@ -113,6 +113,50 @@ def updatePWM(right, left):
 	driveLeft.value = left;
 	driveRight.value = right;
 
+def autoThresh(ratio, cap):
+	ret, image = cap.read()
+
+	gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+	# blur the image to get some of the garbage out
+	gray = cv2.GaussianBlur(gray,(5,5),0)
+	n = 0
+	r = 1
+
+	while(r > ratio):
+		th, im_th = cv2.threshold(gray, n, 255, cv2.THRESH_BINARY);
+		n++
+
+		# copy the original imae into the floodfill images used to fill
+	   # holes in the image
+		im_floodfill = im_th.copy()
+		im_floodfill1 = im_th.copy()
+
+		# get the height and width of the image
+		h, w = im_th.shape[:2]
+
+		# make the mask needed for the floodfill operation. Needs to
+		# be 2 more than the height and width for the floodfill func
+		mask = np.zeros((h+2, w+2), np.uint8)
+
+		# Floodfill from point (0, 0)
+		cv2.floodFill(im_floodfill, mask, (0,0), 255);
+
+		# Floodfill from point (w - 2,0) idk why it is minus 2 but it
+		# yelled at me until I did minus 2
+		cv2.floodFill(im_floodfill1, mask, (w - 2,0), 255);
+
+		# bitwise or the first floodfill and & the next.
+		# (note) might want o check if it is doing the correct thing
+		im_out = im_th | im_floodfill
+
+		im_out = im_th & im_floodfill1
+		total = im_out.size
+		whitePixels = cv2.countNonZero(im_out)
+		r = whitePixels/total
+
+	return n
+
+
 # set the maximum value that you can threshhold (255 white)
 alpha_slider_max = 255
 
@@ -144,6 +188,8 @@ Kp = 0.5
 rDresired = 0.4
 N = 100
 # N = 100 Decent Indoor value
+
+N = autoThresh(rDresired, cap)
 
 while(True):
 	# read the image in (note) needs to be swapped over to video but
