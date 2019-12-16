@@ -246,14 +246,24 @@ while(True):
 	left += error*Kp
 	right += -error*Kp
 
+	# go forward by default
+	forwardLeft.value = True
+	reverseLeft.value = False
+	forwardRight.value = True
+	reverseRight.value = False
+
+	if left < 0:
+		forwardLeft.value = False
+		reverseLeft.value = True
+		left = -left
 	if left > 1:
 		left = 1
-	if left < 0:
-		left = 0
+	if right < 0:
+		rforwardRight.value = False
+		reverseRight.value = True
+		right = -right
 	if right > 1:
 		right = 1
-	if right < 0:
-		right = 0
 
 
 	updatePWM(right, left)
