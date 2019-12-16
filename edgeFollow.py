@@ -141,7 +141,7 @@ left = 0.43
 right =0.57
 forwardDrive()
 Kp = 0.5
-rDresired = 0.6
+rDresired = 0.4
 N = 100
 # N = 100 Decent Indoor value
 
