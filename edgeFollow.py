@@ -141,6 +141,7 @@ left = 0.5
 right =0.5
 forwardDrive()
 Kp = 0.5
+rDresired = 0.5
 
 while(True):
 	# read the image in (note) needs to be swapped over to video but
@@ -191,8 +192,9 @@ while(True):
 	total = im_out.size
 	whitePixels = cv2.countNonZero(im_out)
 	ratio = whitePixels/total
-	left += ratio*Kp
-	right += -ratio*Kp
+	error = error - ratio
+	left += error*Kp
+	right += -error*Kp
 	updatePWM(right, left)
 	print(ratio)
 	#return ratio
