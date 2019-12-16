@@ -123,6 +123,10 @@ def reverseTurnRight():
 	driveLeft.value = 0.8
 	driveRight.value = 0.2
 
+def updatePWM(right, left):
+	driveLeft.value = left;
+	driveRight.value = right;
+
 def main():
 	standby.value = True
 	allStop()
