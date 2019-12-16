@@ -1,3 +1,4 @@
+"""
 def Ratio():
 	import cv2
 	from matplotlib import pyplot as plt
@@ -17,7 +18,7 @@ def Ratio():
 
 	# read the image in (note) needs to be swapped over to video but
 	# is fine rn for testing on a static image
-	image = cv2.imread('/home/pi/Documents/DDRobot/sidewalk.jpg',cv2.IMREAD_GRAYSCALE)
+	image = cv2.imread('/home/seth/Robotics/DDRobot/morning1.jpg',cv2.IMREAD_GRAYSCALE)
 	#image = cv2.imread('/home/sriddick/Documents/Final_Project/DDRobot/refpic2.jpg',cv2.IMREAD_GRAYSCALE)
 
 	# blur the image to get some of the garbage out
@@ -80,7 +81,7 @@ def Ratio():
 		return ratio
 
 		# # show the image in the window with the trackbar
-		# cv2.imshow(title_window, im_out)
+		cv2.imshow(title_window, im_out)
 		#
 		# # find the contours of the image
 		# contours, hierarchy = cv2.findContours(im_out,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
@@ -102,7 +103,7 @@ def Ratio():
 		# # output the areas to the screen
 		# for k in range(len(areaArray)):
 		# 	print(areaArray[k])
-=======
+"""
 import cv2
 from matplotlib import pyplot as plt
 import numpy as np
@@ -151,30 +152,35 @@ def on_trackbar(N):
 	# show the image in the window with the trackbar
 	cv2.imshow(title_window, im_out)
 
+	total = im_out.size
+	whitePixels = cv2.countNonZero(im_out)
+	ratio = whitePixels/total
+	print(ratio)
+
 	# find the contours of the image
-	contours, hierarchy = cv2.findContours(im_out,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-	j = 0
+	# contours, hierarchy = cv2.findContours(im_out,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+	# j = 0
 	# find the areas of the contours
-	for i in range(len(contours)):
-		cnt = contours[i]
-		area = cv2.contourArea(cnt)
+	# for i in range(len(contours)):
+		# cnt = contours[i]
+		# area = cv2.contourArea(cnt)
 		
 		# check to see if the contours are greater than 1000
 		# in order to get rid of the contours not needed
 		# (note) no error checking rn so until it gets to the point
 		# where there is realitevly 2 distinct contours it throws 
 		# some wack shit
-		if(area > 1000):
-			areaArray[j] = area
-			j = j+1
+		# if(area > 1000):
+			# areaArray[j] = area
+			# j = j+1
 
 	# output the areas to the screen
-	for k in range(len(areaArray)):
-		print(areaArray[k])
+	# for k in range(len(areaArray)):
+		# print(areaArray[k])
 
 # read the image in (note) needs to be swapped over to video but
 # is fine rn for testing on a static image
-image = cv2.imread('/home/pi/Documents/DDRobot/darkTest8.jpg',cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('/home/seth/Robotics/DDRobot/morning1.jpg',cv2.IMREAD_GRAYSCALE)
 #image = cv2.imread('/home/sriddick/Documents/Final_Project/DDRobot/refpic2.jpg',cv2.IMREAD_GRAYSCALE)
 
 # blur the image to get some of the garbage out
@@ -195,4 +201,3 @@ on_trackbar(0)
 
 # Wait until user press some key to quit
 cv2.waitKey()
->>>>>>> cdfea7ef8a32bdb38dfc3131bc6aaf7953375e1e
