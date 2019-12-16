@@ -4,7 +4,7 @@
 from gpiozero import PWMOutputDevice
 from gpiozero import DigitalOutputDevice
 from time import sleep
-import contour.py
+import .contour.py
 
 #///////////////// Define Motor Driver GPIO Pins /////////////////
 # Motor A, Left Side GPIO CONSTANTS
@@ -121,7 +121,7 @@ def main():
 	Kp = 1.0
 	while(1)
 	{
-		contour(ratio)
+		ratio = contour()
 		left += ratio*Kp
 		right += -ratio*kp
 		updatePWM(right, left)
