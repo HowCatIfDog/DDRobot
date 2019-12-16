@@ -38,7 +38,7 @@ def allStop():
 	driveRight.value = 0
 
 def forwardDrive():
-	print("going forward")
+	# print("going forward")
 	forwardLeft.value = True
 	reverseLeft.value = False
 	forwardRight.value = True
@@ -47,7 +47,7 @@ def forwardDrive():
 	driveRight.value = 0.7
 
 def reverseDrive():
-	print("going backwards")
+	# print("going backwards")
 	forwardLeft.value = False
 	reverseLeft.value = True
 	forwardRight.value = False
@@ -56,7 +56,7 @@ def reverseDrive():
 	driveRight.value = 1.0
 
 def spinLeft():
-	print("spin left")
+	# print("spin left")
 	forwardLeft.value = False
 	reverseLeft.value = True
 	forwardRight.value = True
@@ -65,7 +65,7 @@ def spinLeft():
 	driveRight.value = 1.0
 
 def SpinRight():
-	print("spin right")
+	# print("spin right")
 	forwardLeft.value = True
 	reverseLeft.value = False
 	forwardRight.value = False
@@ -74,7 +74,7 @@ def SpinRight():
 	driveRight.value = 1.0
 
 def forwardTurnLeft():
-	print("forward turn left")
+	# print("forward turn left")
 	forwardLeft.value = True
 	reverseLeft.value = False
 	forwardRight.value = True
@@ -83,7 +83,7 @@ def forwardTurnLeft():
 	driveRight.value = 0.8
 
 def forwardTurnRight():
-	print("forward turn right")
+	# print("forward turn right")
 	forwardLeft.value = True
 	reverseLeft.value = False
 	forwardRight.value = True
@@ -92,7 +92,7 @@ def forwardTurnRight():
 	driveRight.value = 0.2
 
 def reverseTurnLeft():
-	print("reverse turn left")
+	# print("reverse turn left")
 	forwardLeft.value = False
 	reverseLeft.value = True
 	forwardRight.value = False
@@ -101,7 +101,7 @@ def reverseTurnLeft():
 	driveRight.value = 0.8
 
 def reverseTurnRight():
-	print("reverse turn right")
+	# print("reverse turn right")
 	forwardLeft.value = False
 	reverseLeft.value = True
 	forwardRight.value = False
@@ -117,7 +117,7 @@ def updatePWM(right, left):
 alpha_slider_max = 255
 
 # name of the window being outputed
-title_window = 'Contour Tresh'
+# title_window = 'Contour Tresh'
 
 # initalize the array that will store the 2 pixel values needed
 # for comparison
@@ -208,7 +208,7 @@ while(True):
 
 
 	updatePWM(right, left)
-	print(ratio)
+	# print(ratio)
 	#return ratio
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
