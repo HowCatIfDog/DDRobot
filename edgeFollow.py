@@ -141,8 +141,9 @@ left = 0.5
 right =0.5
 forwardDrive()
 Kp = 0.5
-rDresired = 0.5
+rDresired = 0.6
 N = 100
+# N = 100 Decent Indoor value
 
 while(True):
 	# read the image in (note) needs to be swapped over to video but
