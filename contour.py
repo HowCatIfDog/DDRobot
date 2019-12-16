@@ -43,9 +43,6 @@ def on_trackbar(N):
 	
 	im_out = im_th & im_floodfill1
 	
-	# inverse the image so that the area outside the path is white
-	im_out = cv2.bitwise_not(im_out)
-	
 	# show the image in the window with the trackbar
 	cv2.imshow(title_window, im_out)
 
@@ -72,14 +69,14 @@ def on_trackbar(N):
 
 # read the image in (note) needs to be swapped over to video but
 # is fine rn for testing on a static image
-image = cv2.imread('/home/pi/Documents/DDRobot/sidewalk.jpg',cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('/home/pi/Documents/DDRobot/darkTest8.jpg',cv2.IMREAD_GRAYSCALE)
 #image = cv2.imread('/home/sriddick/Documents/Final_Project/DDRobot/refpic2.jpg',cv2.IMREAD_GRAYSCALE)
 
 # blur the image to get some of the garbage out
 image = cv2.GaussianBlur(image,(5,5),0)
 
 # name the window what the title name is above
-cv2.namedWindow(title_window)
+cv2.namedWindow(title_window, cv2.WINDOW_NORMAL)
 
 # set the trackbar name
 trackbar_name = "Threshold"
