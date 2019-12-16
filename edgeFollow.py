@@ -192,7 +192,7 @@ while(True):
 	whitePixels = cv2.countNonZero(im_out)
 	ratio = whitePixels/total
 	left += ratio*Kp
-	right += -ratio*kp
+	right += -ratio*Kp
 	updatePWM(right, left)
 	print(ratio)
 	#return ratio
