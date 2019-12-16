@@ -140,7 +140,7 @@ cv2.createTrackbar(trackbar_name, title_window , 0, 	alpha_slider_max, passfunc)
 left = 0.5
 right =0.5
 forwardDrive()
-Kp = 1.0
+Kp = 0.5
 
 while(True):
 	# read the image in (note) needs to be swapped over to video but
