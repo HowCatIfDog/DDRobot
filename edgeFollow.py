@@ -191,7 +191,7 @@ N = 100
 # N = 100 Decent Indoor value
 
 N = autoThresh(rDresired, cap)
-N = 190
+# N = 190
 print("autoThresh value: ", N)
 
 while(True):
