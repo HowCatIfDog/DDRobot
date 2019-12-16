@@ -208,7 +208,7 @@ while(True):
 
 
 	updatePWM(right, left)
-	# print(ratio)
+	print(ratio)
 	#return ratio
 	if cv2.waitKey(1) & 0xFF == ord('q'):
 		break
