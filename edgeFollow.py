@@ -120,7 +120,7 @@ def autoThresh(ratio, cap):
 	# blur the image to get some of the garbage out
 	gray = cv2.GaussianBlur(gray,(5,5),0)
 	n = 0
-	r = 1
+	r = 1.0
 
 	while(r > ratio):
 		th, im_th = cv2.threshold(gray, n, 255, cv2.THRESH_BINARY);
@@ -150,6 +150,7 @@ def autoThresh(ratio, cap):
 		im_out = im_th | im_floodfill
 
 		im_out = im_th & im_floodfill1
+
 		total = im_out.size
 		whitePixels = cv2.countNonZero(im_out)
 		r = whitePixels/total
@@ -185,11 +186,12 @@ left = 0.43
 right =0.57
 forwardDrive()
 Kp = 0.5
-rDresired = 0.4
+rDresired = 0.17
 N = 100
 # N = 100 Decent Indoor value
 
 N = autoThresh(rDresired, cap)
+print("autoThresh value: ", N)
 
 while(True):
 	# read the image in (note) needs to be swapped over to video but
