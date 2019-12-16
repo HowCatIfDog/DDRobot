@@ -140,7 +140,7 @@ trackbar_name = "Threshold"
 left = 0.5
 right =0.5
 forwardDrive()
-Kp = 0.5
+Kp = 0.3
 rDresired = 0.6
 N = 100
 # N = 100 Decent Indoor value
